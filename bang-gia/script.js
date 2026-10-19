@@ -1,16 +1,18 @@
 jQuery(async function ($) {
+  const urlParams = new URLSearchParams(window.location.search);
+
 
   const ip = "";
   const ua = "";
   const username = "";
   const password = "";
   const date = "19102026";
+  const key = urlParams.get('key');
 
   let sheetDataJson = [];
 
   try {
-
-    const resp = await fetch(`https://script.google.com/macros/s/AKfycbzffnvjPF1WW5mEe-_k7NMAkCxYLq5jjvcBf4iJs5GbgkqLlbMO3QkPjCCg50T3ntoj/exec?id=ab&tojson=1`, {
+    const resp = await fetch(`https://script.google.com/macros/s/AKfycbzffnvjPF1WW5mEe-_k7NMAkCxYLq5jjvcBf4iJs5GbgkqLlbMO3QkPjCCg50T3ntoj/exec?id=ab&json=1&key=${key}`, {
       method: 'get',
       redirect: "follow", // Bắt buộc phải có để xử lý mã 302
       headers: {
@@ -24,11 +26,6 @@ jQuery(async function ($) {
 
     if ((sheetDataJson?.length ?? 0) <= 0) throw new Error('404');
 
-
-
-
-
-    $('.loader-wrapper').hide()
 
     const allModel = [...new Set(sheetDataJson.map(line => line.name).filter(Boolean))];
 
@@ -74,11 +71,6 @@ jQuery(async function ($) {
             }
 
             if (i === 0) {
-              // const rowspan = colorGroupLength;
-              // const memCell = $(`<td class="mem ${memOdClass}">`)
-              //   .html(`<span>${mem}</span>`)
-              //   .attr({rowspan});
-
               tr.append(memCell);
             }
 
@@ -116,13 +108,10 @@ jQuery(async function ($) {
   } catch (e) {
     alert(e instanceof Error ? e.message : "Lỗi không xác định");
     return;
+  } finally {
+
+    $('.loader-wrapper').hide()
   }
 
 });
 
-
-// jQuery(function ($) {
-//   $(document).tooltip({
-//     position: { my: "left center", at: "right center" }
-//   });
-// })
