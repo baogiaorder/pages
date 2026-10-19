@@ -1,0 +1,171 @@
+/* loader */
+.loader-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* end loader */
+
+
+
+
+.container {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: #333;
+}
+
+pre {
+  background: #eee;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.col {
+  /* padding: .5em; */
+  flex: 1;
+}
+
+
+html {
+  font-size: 14px;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 1.5em;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+
+/* Định dạng đường viền cho bảng và các ô */
+table,
+th,
+td {
+  /* border: 1px solid black; */
+  border: 0.1em solid #c0c0c0;
+
+  /* Đặt viền 1px nét liền màu đen */
+}
+
+/* Gộp viền lại để tránh bị đường viền đôi */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Thêm khoảng cách đệm cho dễ đọc (tùy chọn) */
+th,
+td {
+  white-space: nowrap;
+  padding: 0.4em;
+  text-align: left;
+}
+
+tr.space td {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+tr.space:last-child {
+  display: none;
+}
+
+td.model {
+  font-size: 1.3em;
+  font-weight: 600;
+  min-width: 8em;
+  width: 8em;
+}
+
+td.model span {
+  white-space: wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.mem-odd {
+  background-color: #f6f6f6;
+}
+
+td.color {
+  border-right-color: transparent;
+}
+
+td.price {
+  color: red;
+  /* padding-right: 1.5em; */
+}
+
+tr:has(+ tr.space) {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+td.no-price span {
+  opacity: 0.3;
+}
+
+td.price:hover {
+  background-color: #e3e3e3;
+}
