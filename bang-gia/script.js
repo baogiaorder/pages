@@ -121,8 +121,8 @@ jQuery(async function ($) {
 });
 
 
-jQuery(function ($) {
-  $(document).tooltip({
-    position: { my: "left center", at: "right center" }
-  });
-})
+// jQuery(function ($) {
+//   $(document).tooltip({
+//     position: { my: "left center", at: "right center" }
+//   });
+// })
