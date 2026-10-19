@@ -20,12 +20,11 @@ jQuery(async function ($) {
       },
     });
 
-    if (!resp.ok) throw new Error('500');
+    if (!resp.ok) throw new Error("Lỗi máy chủ!");
 
     sheetDataJson = await resp.json().catch(() => []);
 
-    if ((sheetDataJson?.length ?? 0) <= 0) throw new Error('404');
-
+    if ((sheetDataJson?.length ?? 0) <= 0) throw new Error("không có dữ liệu");
 
     const allModel = [...new Set(sheetDataJson.map(line => line.name).filter(Boolean))];
 
@@ -106,7 +105,8 @@ jQuery(async function ($) {
     })
 
   } catch (e) {
-    alert(e instanceof Error ? e.message : "Lỗi không xác định");
+    // alert(e instanceof Error ? e.message : "Lỗi không xác định");
+    $('#system-message').text(e instanceof Error ? e.message : "Lỗi không xác định")
     return;
   } finally {
 
