@@ -10,7 +10,7 @@ jQuery(async function ($) {
 
   try {
 
-    const resp = await fetch(`http://script.google.com/macros/s/AKfycbzffnvjPF1WW5mEe-_k7NMAkCxYLq5jjvcBf4iJs5GbgkqLlbMO3QkPjCCg50T3ntoj/exec?id=ab&tojson=1`, {
+    const resp = await fetch(`https://script.google.com/macros/s/AKfycbzffnvjPF1WW5mEe-_k7NMAkCxYLq5jjvcBf4iJs5GbgkqLlbMO3QkPjCCg50T3ntoj/exec?id=ab&tojson=1`, {
       method: 'get',
       redirect: "follow", // Bắt buộc phải có để xử lý mã 302
       headers: {
